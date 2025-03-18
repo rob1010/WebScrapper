@@ -1,5 +1,5 @@
-2025-03-14 00:56:20,115 - __main__ - INFO - Logging is configured successfully.
-2025-03-14 00:56:20,201 - bug_reporting - ERROR - Unhandled exception: <class 'TypeError'>, object.__init__() takes exactly one argument (the instance to initialize)
+2025-03-17 16:06:39,344 - __main__ - INFO - Logging is configured successfully.
+2025-03-17 16:06:39,407 - bug_reporting - ERROR - Unhandled exception: <class 'AttributeError'>, 'StartupDialog' object has no attribute 'setCentralWidget'
 Traceback (most recent call last):
   File "C:\Environments\WebScrapper\src\main.py", line 58, in <module>
     main()
@@ -8,20 +8,23 @@ Traceback (most recent call last):
     window_manager.run()
     ~~~~~~~~~~~~~~~~~~^^
   File "C:\Environments\WebScrapper\src\ui_window_manager.py", line 80, in run
-    self.show_app()
-    ~~~~~~~~~~~~~^^
-  File "C:\Environments\WebScrapper\src\ui_window_manager.py", line 123, in show_app
+    self.start_app()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Environments\WebScrapper\src\ui_window_manager.py", line 123, in start_app
     self.initialize_startup_dialog()
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
   File "C:\Environments\WebScrapper\src\ui_window_manager.py", line 64, in initialize_startup_dialog
     self.startup_dialog = StartupDialog()
                           ~~~~~~~~~~~~~^^
-  File "C:\Environments\WebScrapper\src\ui_startup_dialog.py", line 29, in __init__
-    super().__init__(parent)
-    ~~~~~~~~~~~~~~~~^^^^^^^^
-TypeError: object.__init__() takes exactly one argument (the instance to initialize)
-2025-03-14 00:56:48,461 - __main__ - INFO - Logging is configured successfully.
-2025-03-14 00:56:48,507 - bug_reporting - ERROR - Unhandled exception: <class 'TypeError'>, object.__init__() takes exactly one argument (the instance to initialize)
+  File "C:\Environments\WebScrapper\src\ui_startup_dialog.py", line 48, in __init__
+    self.init_ui()
+    ~~~~~~~~~~~~^^
+  File "C:\Environments\WebScrapper\src\ui_startup_dialog.py", line 64, in init_ui
+    self.setCentralWidget(central_widget)
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'StartupDialog' object has no attribute 'setCentralWidget'
+2025-03-17 16:41:54,918 - __main__ - INFO - Logging is configured successfully.
+2025-03-17 16:41:54,970 - bug_reporting - ERROR - Unhandled exception: <class 'AttributeError'>, 'StartupDialog' object has no attribute 'setCentralWidget'
 Traceback (most recent call last):
   File "C:\Environments\WebScrapper\src\main.py", line 58, in <module>
     main()
@@ -30,49 +33,23 @@ Traceback (most recent call last):
     window_manager.run()
     ~~~~~~~~~~~~~~~~~~^^
   File "C:\Environments\WebScrapper\src\ui_window_manager.py", line 80, in run
-    self.show_app()
-    ~~~~~~~~~~~~~^^
-  File "C:\Environments\WebScrapper\src\ui_window_manager.py", line 123, in show_app
+    self.start_app()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Environments\WebScrapper\src\ui_window_manager.py", line 123, in start_app
     self.initialize_startup_dialog()
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
   File "C:\Environments\WebScrapper\src\ui_window_manager.py", line 64, in initialize_startup_dialog
     self.startup_dialog = StartupDialog()
                           ~~~~~~~~~~~~~^^
-  File "C:\Environments\WebScrapper\src\ui_startup_dialog.py", line 29, in __init__
-    super().__init__(parent)
-    ~~~~~~~~~~~~~~~~^^^^^^^^
-TypeError: object.__init__() takes exactly one argument (the instance to initialize)
-2025-03-14 00:56:58,451 - bug_reporting - ERROR - Additional unhandled exception while dialog is shown: <class 'TypeError'>, Scope.update_from_kwargs() got an unexpected keyword argument 'extra'. Did you mean 'extras'?
-Traceback (most recent call last):
-  File "C:\Environments\WebScrapper\src\bug_reporting.py", line 66, in send_report
-    sentry_sdk.capture_message(
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
-        f"User-reported crash: {desc}",
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        level="error",
-        ^^^^^^^^^^^^^^
-        extra={"log_content": log_content}
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "c:\Environments\.venv\Lib\site-packages\sentry_sdk\api.py", line 172, in capture_message
-    return get_current_scope().capture_message(
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
-        message, level, scope=scope, **scope_kwargs
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "c:\Environments\.venv\Lib\site-packages\sentry_sdk\scope.py", line 1220, in capture_message
-    return self.capture_event(event, scope=scope, **scope_kwargs)
-           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "c:\Environments\.venv\Lib\site-packages\sentry_sdk\scope.py", line 1182, in capture_event
-    scope = self._merge_scopes(scope, scope_kwargs)
-  File "c:\Environments\.venv\Lib\site-packages\sentry_sdk\scope.py", line 376, in _merge_scopes
-    final_scope.update_from_kwargs(**additional_scope_kwargs)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: Scope.update_from_kwargs() got an unexpected keyword argument 'extra'. Did you mean 'extras'?
-2025-03-14 00:59:37,910 - __main__ - INFO - Logging is configured successfully.
-2025-03-14 00:59:37,960 - bug_reporting - ERROR - Unhandled exception: <class 'TypeError'>, object.__init__() takes exactly one argument (the instance to initialize)
+  File "C:\Environments\WebScrapper\src\ui_startup_dialog.py", line 50, in __init__
+    self.init_ui()
+    ~~~~~~~~~~~~^^
+  File "C:\Environments\WebScrapper\src\ui_startup_dialog.py", line 66, in init_ui
+    self.setCentralWidget(central_widget)
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'StartupDialog' object has no attribute 'setCentralWidget'
+2025-03-17 16:43:19,328 - __main__ - INFO - Logging is configured successfully.
+2025-03-17 16:43:19,392 - bug_reporting - ERROR - Unhandled exception: <class 'AttributeError'>, 'StartupDialog' object has no attribute 'setModal'
 Traceback (most recent call last):
   File "C:\Environments\WebScrapper\src\main.py", line 58, in <module>
     main()
@@ -81,52 +58,56 @@ Traceback (most recent call last):
     window_manager.run()
     ~~~~~~~~~~~~~~~~~~^^
   File "C:\Environments\WebScrapper\src\ui_window_manager.py", line 80, in run
-    self.show_app()
-    ~~~~~~~~~~~~~^^
-  File "C:\Environments\WebScrapper\src\ui_window_manager.py", line 123, in show_app
+    self.start_app()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Environments\WebScrapper\src\ui_window_manager.py", line 123, in start_app
     self.initialize_startup_dialog()
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
   File "C:\Environments\WebScrapper\src\ui_window_manager.py", line 64, in initialize_startup_dialog
     self.startup_dialog = StartupDialog()
                           ~~~~~~~~~~~~~^^
-  File "C:\Environments\WebScrapper\src\ui_startup_dialog.py", line 29, in __init__
-    super().__init__(parent)
-    ~~~~~~~~~~~~~~~~^^^^^^^^
-TypeError: object.__init__() takes exactly one argument (the instance to initialize)
-2025-03-14 01:04:10,828 - __main__ - INFO - Logging is configured successfully.
-2025-03-14 01:04:10,882 - bug_reporting - ERROR - Unhandled exception: <class 'TypeError'>, object.__init__() takes exactly one argument (the instance to initialize)
+  File "C:\Environments\WebScrapper\src\ui_startup_dialog.py", line 50, in __init__
+    self.init_ui()
+    ~~~~~~~~~~~~^^
+  File "C:\Environments\WebScrapper\src\ui_startup_dialog.py", line 60, in init_ui
+    self.setModal(True)  # Block interaction with the main window until this dialog is handled
+    ^^^^^^^^^^^^^
+AttributeError: 'StartupDialog' object has no attribute 'setModal'. Did you mean: 'isModal'?
+2025-03-17 16:43:56,820 - __main__ - INFO - Logging is configured successfully.
+2025-03-17 18:33:16,323 - __main__ - INFO - Logging is configured successfully.
+2025-03-17 18:33:42,489 - bug_reporting - ERROR - Unhandled exception: <class 'AttributeError'>, 'StartupDialog' object has no attribute 'parameter_layout'
+Traceback (most recent call last):
+  File "C:\Environments\WebScrapper\src\ui_startup_dialog.py", line 106, in add_parameter
+    self.add_parameter_row(name, value)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Environments\WebScrapper\src\ui_startup_dialog.py", line 118, in add_parameter_row
+    self.parameter_layout.addLayout(row_layout)
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'StartupDialog' object has no attribute 'parameter_layout'
+2025-03-17 19:41:45,736 - __main__ - INFO - Logging is configured successfully.
+2025-03-17 19:41:53,626 - bug_reporting - ERROR - Unhandled exception: <class 'AttributeError'>, 'StartupDialog' object has no attribute 'parameter_layout'
+Traceback (most recent call last):
+  File "C:\Environments\WebScrapper\src\ui_startup_dialog.py", line 106, in add_parameter
+    self.add_parameter_row(name, value)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Environments\WebScrapper\src\ui_startup_dialog.py", line 118, in add_parameter_row
+    self.parameter_layout.addLayout(row_layout)
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'StartupDialog' object has no attribute 'parameter_layout'
+2025-03-17 21:35:10,930 - __main__ - INFO - Logging is configured successfully.
+2025-03-17 21:36:55,219 - __main__ - INFO - Logging is configured successfully.
+2025-03-17 21:37:48,712 - bug_reporting - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
 Traceback (most recent call last):
   File "C:\Environments\WebScrapper\src\main.py", line 58, in <module>
     main()
     ~~~~^^
-  File "C:\Environments\WebScrapper\src\main.py", line 51, in main
-    window_manager.run()
-    ~~~~~~~~~~~~~~~~~~^^
-  File "C:\Environments\WebScrapper\src\ui_window_manager.py", line 80, in run
-    self.show_app()
-    ~~~~~~~~~~~~~^^
-  File "C:\Environments\WebScrapper\src\ui_window_manager.py", line 123, in show_app
-    self.initialize_startup_dialog()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Environments\WebScrapper\src\ui_window_manager.py", line 64, in initialize_startup_dialog
-    self.startup_dialog = StartupDialog()
-                          ~~~~~~~~~~~~~^^
-  File "C:\Environments\WebScrapper\src\ui_startup_dialog.py", line 29, in __init__
-    super().__init__(parent)
-    ~~~~~~~~~~~~~~~~^^^^^^^^
-TypeError: object.__init__() takes exactly one argument (the instance to initialize)
-2025-03-14 01:09:22,558 - __main__ - INFO - Logging is configured successfully.
-2025-03-14 01:09:43,379 - bug_reporting - ERROR - Unhandled exception: <class 'AttributeError'>, 'StartupDialog' object has no attribute 'quit_app'
-Traceback (most recent call last):
-  File "C:\Environments\WebScrapper\src\ui_startup_dialog.py", line 111, in <lambda>
-    button = self.create_button("Quit", lambda: self.quit_app())
-                                                ^^^^^^^^^^^^^
-AttributeError: 'StartupDialog' object has no attribute 'quit_app'
-2025-03-14 01:11:34,849 - __main__ - INFO - Logging is configured successfully.
-2025-03-14 01:11:36,051 - bug_reporting - ERROR - Unhandled exception: <class 'AttributeError'>, 'StartupDialog' object has no attribute 'quit_app'
-Traceback (most recent call last):
-  File "C:\Environments\WebScrapper\src\ui_startup_dialog.py", line 111, in <lambda>
-    button = self.create_button("Quit", lambda: self.quit_app())
-                                                ^^^^^^^^^^^^^
-AttributeError: 'StartupDialog' object has no attribute 'quit_app'
-2025-03-14 01:14:08,786 - __main__ - INFO - Logging is configured successfully.
+  File "C:\Environments\WebScrapper\src\main.py", line 54, in main
+    sys.exit(app.exec())
+             ~~~~~~~~^^
+KeyboardInterrupt
+2025-03-17 21:49:07,252 - __main__ - INFO - Logging is configured successfully.
+2025-03-17 22:35:45,523 - __main__ - INFO - Logging is configured successfully.
+2025-03-18 00:48:03,251 - __main__ - INFO - Logging is configured successfully.
+2025-03-18 00:56:55,828 - __main__ - INFO - Logging is configured successfully.
+2025-03-18 00:57:38,563 - __main__ - INFO - Logging is configured successfully.
+2025-03-18 00:58:17,216 - __main__ - INFO - Logging is configured successfully.

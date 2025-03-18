@@ -1,3 +1,22 @@
 {
-    
+    "search_params": {
+        "model": "VW ID7",
+        "year": "2019",
+        "color": "Red"
+    },
+    "combobox_options": {
+        "model": [
+            "VW ID7",
+            "VW ID3",
+            "VW ID4"
+        ],
+        "year": [
+            "2019",
+            "2022",
+            "2023"
+        ],
+        "color": [
+            "Red"
+        ]
+    }
 }

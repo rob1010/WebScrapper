@@ -6,7 +6,7 @@ import platform
 from PySide6.QtCore import QCoreApplication, QTimer
 from PySide6.QtWidgets import QApplication
 from PySide6.QtGui import QIcon
-from ui_startup_dialog import StartupDialog
+from ui_main_window import MainWindow
 
 # Get a logger for this module
 logger = logging.getLogger(__name__)
@@ -31,7 +31,7 @@ class WindowManager:
         self.app.setStyleSheet(stylesheet)
         
         # Initialize window components as None; they will be lazily created
-        self.startup_dialog = None
+        self.main_window = None
         
         # Set the application icon based on the operating system
         self.base_dir = os.path.dirname(__file__)
@@ -56,21 +56,21 @@ class WindowManager:
             else self.icon_path_linux
         )
         
-    def initialize_startup_dialog(self):
+    def initialize_main_window(self):
         """
         Lazily initialize the startup dialog if it has not been created yet.
         """
-        if self.startup_dialog is None:
-            self.startup_dialog = StartupDialog()
-        self.connect_signals_startup_dialog()
+        if self.main_window is None:
+            self.main_window = MainWindow()
+        self.connect_signals_main_window()
         
-    def disconnect_startup_dialog(self):
+    def disconnect_main_window(self):
         """
         Disconnect all signals connected to the startup dialog.
         """
-        self.startup_dialog.start_app_signal.disconnect()
-        self.startup_dialog.quit_app_signal.disconnect()
-        self.startup_dialog = None
+        self.main_window.start_app_signal.disconnect()
+        self.main_window.quit_app_signal.disconnect()
+        self.main_window = None
         
     def run(self):
         """
@@ -79,12 +79,12 @@ class WindowManager:
         """
         self.start_app()
 
-    def connect_signals_startup_dialog(self):
+    def connect_signals_main_window(self):
         """
         Connect the signals emitted by the startup dialog to their respective handlers.
         """
-        self.startup_dialog.start_app_signal.connect(self.start_app)
-        self.startup_dialog.quit_app_signal.connect(self.quit_app)
+        self.main_window.start_app_signal.connect(self.start_app)
+        self.main_window.quit_app_signal.connect(self.quit_app)
 
     def load_stylesheet(self, file_path):
         """
@@ -110,9 +110,9 @@ class WindowManager:
         """
         
         # Close the StartupDialog if it exists
-        if self.startup_dialog:
-            self.startup_dialog.close()
-            self.disconnect_startup_dialog()
+        if self.main_window:
+            self.main_window.close()
+            self.disconnect_main_window()
         QApplication.quit()
 
     def start_app(self):
@@ -120,5 +120,5 @@ class WindowManager:
         Show the StartupDialog, closing other windows if necessary.
         """
         # Initialize the StartupDialog and show it
-        self.initialize_startup_dialog()
-        self.startup_dialog.show()
+        self.initialize_main_window()
+        self.main_window.show()
